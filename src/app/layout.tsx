@@ -17,16 +17,28 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <CartProvider>
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <div className="flex-1">
+              {children}
+            </div>
 
-          <div className="fixed bottom-24 right-4 z-40 flex flex-col gap-2 rounded-2xl border border-[#b89c6d] bg-white/70 px-4 py-3 text-xs font-bold text-[#1f5f2a] shadow-xl backdrop-blur-xl md:bottom-4 md:right-4">
-            <a href="/privacy" className="hover:text-[#39A935]">
-              Политика конфиденциальности
-            </a>
+            <footer className="border-t border-[#b89c6d]/40 bg-[#d7c29a] px-5 py-5 text-center">
+              <div className="flex flex-col items-center gap-3 text-sm font-bold text-[#355f28]">
+                <a
+                  href="/privacy"
+                  className="transition hover:text-[#39A935]"
+                >
+                  Политика конфиденциальности
+                </a>
 
-            <a href="/terms" className="hover:text-[#39A935]">
-              Пользовательское соглашение
-            </a>
+                <a
+                  href="/terms"
+                  className="transition hover:text-[#39A935]"
+                >
+                  Пользовательское соглашение
+                </a>
+              </div>
+            </footer>
           </div>
         </CartProvider>
       </body>
