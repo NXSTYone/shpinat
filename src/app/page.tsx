@@ -41,7 +41,7 @@ const contacts = [
   {
     icon: Phone,
     title: "Телефон",
-    text: "+7 (999) 999-99-99",
+    text: "+7 (965) 611-82-54",
     href: "tel:+79656118254",
   },
   {
