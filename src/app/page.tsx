@@ -332,13 +332,13 @@ export default function Home() {
               );
             })}
           </div>
-          
-<div className="mt-10 flex justify-center">
+
+<div className="mt-12 flex justify-center">
   <a
     href="https://t.me/shpinat"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-3 rounded-full bg-[#27A7E7] px-8 py-5 text-lg font-black text-white shadow-xl transition hover:scale-[1.03] active:scale-95"
+    className="flex items-center justify-center gap-3 rounded-full bg-[#39A935] px-10 py-5 text-lg font-black text-white shadow-xl shadow-[#7fbf5d] transition hover:scale-[1.03] hover:bg-[#2F922C] active:scale-95"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
