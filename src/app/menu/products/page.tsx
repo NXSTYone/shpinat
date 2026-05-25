@@ -311,6 +311,12 @@ export default function ProductsPage() {
                   <ShoppingBag size={22} />
                   Добавить в корзину
                 </button>
+                <button
+  onClick={closeProduct}
+  className="mt-4 flex w-full items-center justify-center rounded-full border border-[#b89c6d] bg-white/35 px-8 py-5 text-lg font-black text-[#1f5f2a] shadow-lg transition hover:bg-white/50 active:scale-95"
+>
+  Закрыть
+</button>
               </div>
             </div>
           </div>
