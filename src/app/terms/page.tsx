@@ -118,6 +118,8 @@ export default function TermsPage() {
 
         <p className="mt-10 text-sm font-bold text-[#355f28]/80">
           Дата публикации: 2026 г.
+          Шарипова Татьяна Владимировна
+          ИНН 162802340528
         </p>
       </div>
     </main>
