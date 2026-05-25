@@ -335,21 +335,12 @@ export default function Home() {
 
 <div className="mt-12 flex justify-center">
   <a
-    href="https://t.me/shpinat"
+    href="https://t.me/ecoclubbb"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center justify-center gap-3 rounded-full bg-[#39A935] px-10 py-5 text-lg font-black text-white shadow-xl shadow-[#7fbf5d] transition hover:scale-[1.03] hover:bg-[#2F922C] active:scale-95"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      fill="currentColor"
-      viewBox="0 0 16 16"
-    >
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.7 11.5l-.1 2.1c.2 0 .3-.1.4-.2l1-1 .2-.2 2-1.9 4.2 3.1c.8.4 1.3.2 1.5-.7l2.7-12.6v-.3c0-.6-.3-.8-.9-.6L1.2 7.1c-.8.3-.8.8-.1 1l4.3 1.3L13 4.8c.4-.2.7-.1.4.2"/>
-    </svg>
-
+    <Send size={24} />
     Наш Telegram-канал
   </a>
 </div>
