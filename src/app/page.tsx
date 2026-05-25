@@ -42,19 +42,19 @@ const contacts = [
     icon: Phone,
     title: "Телефон",
     text: "+7 (999) 999-99-99",
-    href: "tel:+79999999999",
+    href: "tel:+79656118254",
   },
   {
     icon: MessageCircle,
     title: "WhatsApp",
     text: "Написать в WhatsApp",
-    href: "https://wa.me/79999999999",
+    href: "https://wa.me/79656118254",
   },
   {
     icon: Send,
     title: "Telegram",
     text: "Открыть Telegram",
-    href: "https://t.me/shpinat",
+    href: "https://t.me/tatyana341",
   },
 ];
 
