@@ -179,6 +179,7 @@ export const dishes = [
 - Овсяноблин 
 - Фрукты
 - Сыры
+- Ягоды
 `,
     price: 320,
     image:
