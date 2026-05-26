@@ -205,15 +205,28 @@ export const sets = [
 
 export const ecoProducts = [
   {
-    id: 5,
+    id: 20,
     title: "Домашние яйца",
     description:
-      "Свежие домашние яйца от хозяйства.",
+      "Свежие домашние яйца от собственного хозяйства.",
     fullDescription:
-      "Натуральные яйца от домашних кур.",
-    price: 120,
+      "Натуральные и свежие яйца от домашних кур - 10 шт..",
+    price: 100,
     image:
-      "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=900&q=90",
+      "/images/yaitsa.webp",
+    seasonal: false,
+  },
+
+  {
+    id: 20,
+    title: "Домашний хлеб",
+    description:
+      "Свежий,вкусный и полезный домашний хлеб из .",
+    fullDescription:
+      "Натуральные и свежие яйца от домашних кур - 10 шт..",
+    price: 100,
+    image:
+      "/images/hleb.webp",
     seasonal: false,
   },
 ];
