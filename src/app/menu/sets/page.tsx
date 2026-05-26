@@ -23,8 +23,8 @@ import { useCart } from "@/context/CartContext";
 
 type Product = (typeof sets)[number];
 
-const scheduleMonth = "май";
-const scheduleImage = "/images/program-schedule.jpg";
+const scheduleMonth = "июнь";
+const scheduleImage = "/images/pitanie.jpg";
 
 export default function SetsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);

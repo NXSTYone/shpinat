@@ -132,11 +132,28 @@ export const dishes = [
       "/images/pp_box.webp",
     seasonal: true,
   },
+
+  {
+    id: 8,
+    title: "ПП-бокс смузи",
+    description:
+      "Готовое питание на весь день. Полезно, вкусно и с заботой о вашем здоровье",
+    fullDescription: `
+- Завтрак 
+- Обед
+- Ужин
+- Травяной чай 
+`,
+    price: 1220,
+    image:
+      "/images/pp_box.webp",
+    seasonal: true,
+  },
 ];
 
 export const sets = [
   {
-    id: 8,
+    id: 9,
     title: "Эко-набор Family",
     description:
       "Фермерские продукты для всей семьи.",
