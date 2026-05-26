@@ -3,7 +3,7 @@ export const dishes = [
     id: 1,
     title: "Салат ВКУСНОЕ НАСТРОЕНИЕ",
     description:
-      "Полезный салат с мясом птицы,овощами,зеленью,крупой и натуральной заправкой и специями.",
+      "Полезный салат с мясом птицы, овощами, зеленью, крупой, натуральной заправкой и специями.",
     fullDescription: `
 - Отварное мясо птицы
 - Хрустящие листья салата
@@ -19,7 +19,7 @@ export const dishes = [
 `,
     price: 420,
     image:
-       "/images/spring-salad.webp",
+       "/images/salat_nastroy.webp",
     seasonal: true,
   },
 
@@ -27,32 +27,79 @@ export const dishes = [
     id: 2,
     title: "Фермерский завтрак",
     description:
-      "Домашние яйца, хлеб и свежие сезонные добавки.",
-    fullDescription:
-      "Фермерские яйца, домашний хлеб, зелень и натуральные продукты.",
-    price: 390,
+      "Полезный и сытный завтрак из натуральных ингридиентов.",
+    fullDescription: `
+- Домашние яйца 
+- Крупы или пророщенные крупы, 
+- Хлеб 
+- Зелень
+`,
+    price: 420,
     image:
-      "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=90",
+      "/images/fermersky.webp",
     seasonal: true,
   },
 
   {
     id: 3,
-    title: "Овощная тарелка",
+    title: "Идеальный завтрак",
     description:
-      "Свежие овощи, зелень и натуральные продукты по сезону.",
-    fullDescription:
-      "Ассорти из сезонных овощей, зелени и натуральных добавок.",
-    price: 350,
+      "Вкусный и полезный завтрак для энергии на весь день.",
+    fullDescription: `
+- Цельнозерновая овсянка 
+- Фермерском молоко 
+- Фермерскок сливочное масло
+- Пророщенные крупы
+- Барбарис
+- Авокадо
+- Хлеб
+`,
+    price: 420,
     image:
-      "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=90",
+      "/images/ovsyanka.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 4,
+    title: "Костный бульон",
+    description:
+      "Чистый коллаген.Живая основа для здоровья кожи, волос и суставов.",
+    fullDescription: `
+- Говяжьи кости
+- Лук
+- Морковь
+- Специи
+`,
+    price: 270,
+    image:
+      "/images/kost_sup.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 5,
+    title: "Крем‑суп из тыквы",
+    description:
+      "Биоактивный крем‑суп из тыквы с красной чечевицей на костном бульоне.",
+    fullDescription: `
+- Тыква 
+- Морковь
+- Красная чечевица,
+- Болгарский перец
+- Костный бульон 
+- Специи
+`,
+    price: 320,
+    image:
+      "/images/tykva_sup.webp",
     seasonal: true,
   },
 ];
 
 export const sets = [
   {
-    id: 4,
+    id: 6,
     title: "Эко-набор Family",
     description:
       "Фермерские продукты для всей семьи.",
