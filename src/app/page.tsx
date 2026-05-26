@@ -19,7 +19,7 @@ import {
 const menuSections = [
   {
     icon: Salad,
-    title: "Блюда и ПП-боксы",
+    title: "Блюда, ПП-боксы, Сертификаты",
     text: "Авторские полезные блюда из свежих ингредиентов.",
     href: "/menu/dishes",
   },
