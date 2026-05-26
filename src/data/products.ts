@@ -115,11 +115,28 @@ export const dishes = [
       "/images/zelen_sup.webp",
     seasonal: true,
   },
+
+  {
+    id: 7,
+    title: "ПП-бокс",
+    description:
+      "Готовое питание на весь день. Полезно, вкусно и с заботой о вашем здоровье",
+    fullDescription: `
+- Завтрак 
+- Обед
+- Ужин
+- Травяной чай 
+`,
+    price: 1600,
+    image:
+      "/images/pp_box.webp",
+    seasonal: true,
+  },
 ];
 
 export const sets = [
   {
-    id: 7,
+    id: 8,
     title: "Эко-набор Family",
     description:
       "Фермерские продукты для всей семьи.",
