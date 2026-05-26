@@ -210,7 +210,7 @@ export const ecoProducts = [
     description:
       "Свежие домашние яйца от собственного хозяйства.",
     fullDescription:
-      "Натуральные и свежие яйца от домашних кур - 10 шт..",
+      "Натуральные и свежие яйца от домашних кур - 10 шт.",
     price: 100,
     image:
       "/images/yaitsa.webp",
@@ -223,8 +223,8 @@ export const ecoProducts = [
     description:
       "Свежий,вкусный и полезный домашний хлеб из .",
     fullDescription:
-      "Натуральные и свежие яйца от домашних кур - 10 шт..",
-    price: 100,
+      "Натуральный и свежий хлеб из муки зеленой гречки.",
+    price: 400,
     image:
       "/images/hleb.webp",
     seasonal: false,
