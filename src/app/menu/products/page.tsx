@@ -241,9 +241,9 @@ export default function ProductsPage() {
                   {selectedProduct.title}
                 </h2>
 
-                <p className="mt-5 text-lg font-semibold leading-8 text-[#355f28]">
-                  {selectedProduct.fullDescription}
-                </p>
+                <p className="mt-5 whitespace-pre-line text-lg font-semibold leading-8 text-[#355f28]">
+  {selectedProduct.fullDescription}
+</p>
 
                 <div className="mt-6 rounded-2xl bg-white/35 p-5">
                   <div className="flex items-start gap-3">
