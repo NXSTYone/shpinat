@@ -314,7 +314,7 @@ export default function CartPage() {
     Информация о доставке
   </p>
 
-  <div className="mt-3 space-y-2 text-sm font-semibold text-[#355f28]">
+  <div className="mt-3 space-y-2 text-center text-sm font-semibold text-[#355f28]">
     <p>🚚 Стоимость доставки — 200₽</p>
     <p>🎁 При заказе от 5000₽ доставка бесплатная</p>
   </div>
