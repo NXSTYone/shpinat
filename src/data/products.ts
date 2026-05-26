@@ -69,6 +69,7 @@ export const dishes = [
 - Говяжьи кости
 - Лук
 - Морковь
+- Мясо птицы
 - Специи
 `,
     price: 270,
@@ -87,7 +88,8 @@ export const dishes = [
 - Морковь
 - Красная чечевица
 - Болгарский перец
-- Костный бульон 
+- Костный бульон
+- Мясо птицы 
 - Специи
 `,
     price: 320,
@@ -95,11 +97,29 @@ export const dishes = [
       "/images/tykva_sup.webp",
     seasonal: true,
   },
+
+  {
+    id: 6,
+    title: "Крем‑суп ЗЕЛЕНАЯ СИЛА",
+    description:
+      "Крем‑суп из брокколи и грибов с зелёной чечевицей на костном бульоне.",
+    fullDescription: `
+- Брокколи свежая 
+- Шампиньоны
+- Зеленая чечевица
+- Костный бульон 
+- Мясо птицы
+`,
+    price: 320,
+    image:
+      "/images/zelen_sup.webp",
+    seasonal: true,
+  },
 ];
 
 export const sets = [
   {
-    id: 6,
+    id: 7,
     title: "Эко-набор Family",
     description:
       "Фермерские продукты для всей семьи.",
