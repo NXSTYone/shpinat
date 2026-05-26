@@ -310,7 +310,7 @@ export default function CartPage() {
               </div>
 
               <div className="mt-6 rounded-[2rem] border border-[#b89c6d] bg-white/35 p-5 shadow-lg backdrop-blur-xl">
-  <p className="text-base font-black text-[#1f5f2a]">
+  <p className="text-center text-base font-black text-[#1f5f2a]">
     Информация о доставке
   </p>
 
