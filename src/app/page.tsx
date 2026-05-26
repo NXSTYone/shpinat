@@ -128,7 +128,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto flex max-w-xl flex-col items-center md:mx-0 md:max-w-none md:items-start">
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#b89c6d] bg-white/25 px-5 py-2 text-center text-xs font-bold text-[#39A935] shadow-sm backdrop-blur-xl md:text-sm">
             <Sparkles size={16} />
-            Натуральное и ползеное питание нового уровня
+            Натуральное и полезное питание нового уровня
           </div>
 
           <h1 className="max-w-3xl text-center text-[44px] font-black leading-[0.95] tracking-[-0.055em] text-[#1f5f2a] md:text-left md:text-8xl">
