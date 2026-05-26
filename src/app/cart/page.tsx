@@ -309,6 +309,16 @@ export default function CartPage() {
                 <div className="mt-2 text-4xl font-black">{totalPrice} ₽</div>
               </div>
 
+              <div className="mt-6 rounded-[2rem] border border-[#b89c6d] bg-white/35 p-5 shadow-lg backdrop-blur-xl">
+  <p className="text-base font-black text-[#1f5f2a]">
+    Информация о доставке
+  </p>
+
+  <div className="mt-3 space-y-2 text-sm font-semibold text-[#355f28]">
+    <p>🚚 Стоимость доставки — 200₽</p>
+    <p>🎁 При заказе от 5000₽ доставка бесплатная</p>
+  </div>
+</div>
               <button
                 onClick={submitOrder}
                 disabled={isSending}
