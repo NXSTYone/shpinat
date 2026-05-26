@@ -156,14 +156,33 @@ export const dishes = [
     description:
       "Вкусный и сытный гамбургер из натуральных ингридиентов.",
     fullDescription: `
-- Завтрак 
-- Обед
-- Ужин
-- Травяной чай 
+- Хлеб 
+- Салат
+- Зелень
+- Овощи
+- Мясо
+- Сыры
+- Соус 
 `,
-    price: 1220,
+    price: 320,
     image:
-      "/images/pp_box.webp",
+      "/images/pp_burger.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 9,
+    title: "ПП Гамбургер СЛАДКИЙ",
+    description:
+      "Авторский, вкусный и сытный гамбургер из натуральных ингридиентов.",
+    fullDescription: `
+- Овсяноблин 
+- Фрукты
+- Сыры
+`,
+    price: 320,
+    image:
+      "/images/pp_burgersladkiy.webp",
     seasonal: true,
   },
 ];
