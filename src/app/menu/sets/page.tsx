@@ -24,7 +24,7 @@ import { useCart } from "@/context/CartContext";
 type Product = (typeof sets)[number];
 
 const scheduleMonth = "июнь";
-const scheduleImage = "/images/pitanie.jpg";
+const scheduleImage = "/images/pitanie.webp";
 
 export default function SetsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
