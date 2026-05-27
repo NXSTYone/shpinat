@@ -192,7 +192,7 @@ export default function Home() {
         <div className="relative z-10 hidden md:block">
           <div className="relative overflow-hidden rounded-[3.5rem] border border-white/30 bg-white/20 p-4 shadow-[0_40px_120px_rgba(74,53,24,0.28)] backdrop-blur-2xl">
             <img
-              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1300&q=90"
+              src="/images/sezon.webp"
               alt="Натуральные продукты ШПИНАТ"
               className="h-[620px] w-full rounded-[3rem] object-cover"
             />
