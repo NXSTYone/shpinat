@@ -86,7 +86,8 @@ ${escapeHtml(order.comment || "Без комментария")}
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+  console.log(error);
     return NextResponse.json(
       { error: "Order processing failed" },
       { status: 500 }
