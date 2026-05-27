@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { CheckCircle, ArrowRight, ShoppingBag } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
 import { useCart } from "@/context/CartContext";
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const payment = searchParams.get("payment");
   const { clearCart } = useCart();
@@ -59,18 +59,12 @@ export default function SuccessPage() {
           </div>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="/"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#39A935] px-8 py-5 font-black text-white shadow-xl shadow-[#7fbf5d]"
-            >
+            <a href="/" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#39A935] px-8 py-5 font-black text-white shadow-xl shadow-[#7fbf5d]">
               На главную
               <ArrowRight size={18} />
             </a>
 
-            <a
-              href="/#menu"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#b89c6d] bg-white/30 px-8 py-5 font-black text-[#1f7a32]"
-            >
+            <a href="/#menu" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#b89c6d] bg-white/30 px-8 py-5 font-black text-[#1f7a32]">
               <ShoppingBag size={18} />
               В меню
             </a>
@@ -78,5 +72,13 @@ export default function SuccessPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={null}>
+      <SuccessContent />
+    </Suspense>
   );
 }
