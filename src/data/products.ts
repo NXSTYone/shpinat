@@ -239,6 +239,79 @@ export const dishes = [
       "/images/shaurma.webp",
     seasonal: true,
   },
+
+  {
+    id: 14,
+    title: "Блинный ролл с малосольной рыбой",
+    description:
+      "Блинный ролл с малосольной рыбой,овощами и зеленью. Отличный вариант для тех, кто ценит вкус и пользу.",
+    fullDescription: `
+- Блин 
+- Малосольная красная рыба
+- Проростки
+- Овощи
+- Зелень
+`,
+    price: 420,
+    image:
+      "/images/blin_roll.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 15,
+    title: "Блинный мешочек",
+    description:
+      "Блинный мешочек с натуральными и свежими ингридиентами.",
+    fullDescription: `
+- Блин 
+- Малосольная красная рыба
+- Проростки
+- Овощи
+- Зелень
+- Яйцо
+- Сыр
+`,
+    price: 420,
+    image:
+      "/images/meshok.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 16,
+    title: "Запеченная груша с мясом",
+    description:
+      "Вкусное,сытное и полезное блюдо для на каждый день.",
+    fullDescription: `
+- Груша 
+- Мясо птицы
+- Зелень
+- Овощи
+- Сыр
+`,
+    price: 420,
+    image:
+      "/images/grusha.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 17,
+    title: "Суп-пюре",
+    description:
+      "Питательный и натуральный суп-пюре на костном бульоне с овощами и мясом.",
+    fullDescription: `
+- Костный бульон 
+- Мясо птицы
+- Овощи
+- Семена
+`,
+    price: 320,
+    image:
+      "/images/sup.webp",
+    seasonal: true,
+  },
 ];
 
 export const sets = [
