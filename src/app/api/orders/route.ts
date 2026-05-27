@@ -9,15 +9,15 @@ type OrderItem = {
 type OrderPayload = {
   name: string;
   phone: string;
-  address: string;
-  comment: string;
+  address?: string;
+  comment?: string;
   paymentMethod: string;
   items: OrderItem[];
   totalPrice: number;
 };
 
 function escapeHtml(text: string) {
-  return text
+  return String(text || "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
