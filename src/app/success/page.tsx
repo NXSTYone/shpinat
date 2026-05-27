@@ -1,7 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import { CheckCircle, ArrowRight, ShoppingBag } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+
+import { useCart } from "@/context/CartContext";
 
 export default function SuccessPage() {
+  const searchParams = useSearchParams();
+  const payment = searchParams.get("payment");
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
+
+  const isSbp = payment === "sbp";
+
   return (
     <main className="min-h-screen bg-[#cdb78f] px-5 py-10 text-[#355f28]">
       <div className="mx-auto flex min-h-[80vh] max-w-3xl flex-col items-center justify-center text-center">
@@ -19,17 +35,27 @@ export default function SuccessPage() {
           </div>
 
           <h1 className="mt-8 text-4xl font-black text-[#1f5f2a] md:text-6xl">
-            Заказ принят
+            {isSbp ? "Оплата прошла успешно" : "Заказ принят"}
           </h1>
 
           <p className="mx-auto mt-5 max-w-xl text-lg font-semibold leading-8">
-            Спасибо! Ваш заказ успешно оформлен. Мы скоро свяжемся с вами для
-            подтверждения деталей.
+            {isSbp
+              ? "Спасибо! Оплата по СБП успешно получена. Ваш заказ принят, мы скоро свяжемся с вами для подтверждения деталей."
+              : "Спасибо! Ваш заказ успешно отправлен. Мы скоро свяжемся с вами для подтверждения деталей."}
           </p>
 
           <div className="mt-8 rounded-[2rem] bg-white/35 p-5 text-sm font-bold leading-7">
-            <p>💵 При оплате наличными — оплатите заказ при получении.</p>
-            <p>📲 При оплате по СБП — заказ будет принят после подтверждения оплаты.</p>
+            {isSbp ? (
+              <>
+                <p>📲 Способ оплаты: СБП</p>
+                <p>✅ Статус: оплачено</p>
+              </>
+            ) : (
+              <>
+                <p>💵 Способ оплаты: наличными при получении</p>
+                <p>✅ Статус: заказ отправлен</p>
+              </>
+            )}
           </div>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
