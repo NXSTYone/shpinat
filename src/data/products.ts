@@ -186,6 +186,59 @@ export const dishes = [
       "/images/pp_burgersladkiy.webp",
     seasonal: true,
   },
+
+  {
+    id: 11,
+    title: "Запеченное авокадо",
+    description:
+      "Прекрасное сочетание вкуса и пользы. Идеальный вариант для правильно питания.",
+    fullDescription: `
+- Авокадо 
+- Красная рыба
+- Яйцо
+- Зелень
+- Гарнир на выбор
+`,
+    price: 420,
+    image:
+      "/images/avokado.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 12,
+    title: "Коллективная тарелка салата",
+    description:
+      "Вкусный и полезный салат из натуральных ингридиентов. Порция на 2 персоны.",
+    fullDescription: `
+- Мясо птицы 
+- Овощи
+- Яйцо
+- Зелень
+- Соус
+`,
+    price: 610,
+    image:
+      "/images/tarelka.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 13,
+    title: "Овощная шаурма",
+    description:
+      "Сочная авторская овощная шаурма для правильного перескуса.",
+    fullDescription: `
+- Мясо птицы 
+- Овощи
+- Проростки
+- Соус
+`,
+    price: 420,
+    image:
+      "/images/shaurma.webp",
+    seasonal: true,
+  },
 ];
 
 export const sets = [
