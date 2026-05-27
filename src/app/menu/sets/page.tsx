@@ -142,11 +142,11 @@ export default function SetsPage() {
           </div>
 
           <h1 className="mt-8 text-5xl font-black tracking-[-0.05em] text-[#1f5f2a] md:text-7xl">
-            Наборы
+            Программы питания
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-[#355f28] md:text-xl">
-            Готовые комплекты для семьи, завтрака и правильного питания.
+            Готовые программы питания для вас и вашего здоровья.
           </p>
 
           <button
