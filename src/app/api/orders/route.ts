@@ -1,27 +1,6 @@
 import { NextResponse } from "next/server";
-
-type OrderItem = {
-  title: string;
-  price: number;
-  quantity: number;
-};
-
-type OrderPayload = {
-  name: string;
-  phone: string;
-  address?: string;
-  comment?: string;
-  paymentMethod: string;
-  items: OrderItem[];
-  totalPrice: number;
-};
-
-function escapeHtml(text: string) {
-  return String(text || "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
-}
+import axios from "axios";
+import { SocksProxyAgent } from "socks-proxy-agent";
 
 export async function POST(request: Request) {
   try {
@@ -30,66 +9,68 @@ export async function POST(request: Request) {
 
     if (!botToken || !chatId) {
       return NextResponse.json(
-        { error: "Telegram settings are missing" },
+        { error: "Telegram env not found" },
         { status: 500 }
       );
     }
 
-    const order: OrderPayload = await request.json();
+    const order = await request.json();
 
     const itemsText = order.items
-      .map(
-        (item, index) =>
-          `${index + 1}. ${escapeHtml(item.title)} — ${item.quantity} шт. × ${
-            item.price
-          } ₽ = ${item.price * item.quantity} ₽`
+      ?.map(
+        (item: any, index: number) =>
+          `${index + 1}. ${item.title} — ${item.quantity} шт. × ${item.price} ₽`
       )
       .join("\n");
 
     const message = `
-<b>🛒 Новый заказ ШПИНАТ</b>
+🛒 Новый заказ ШПИНАТ
 
-<b>Клиент:</b> ${escapeHtml(order.name)}
-<b>Телефон:</b> ${escapeHtml(order.phone)}
-<b>Адрес:</b> ${escapeHtml(order.address || "Не указан")}
-<b>Оплата:</b> ${escapeHtml(order.paymentMethod)}
+Имя: ${order.name}
+Телефон: ${order.phone}
+Адрес: ${order.address || "Не указан"}
+Оплата: ${order.paymentMethod}
 
-<b>Состав заказа:</b>
-${itemsText}
+Состав заказа:
+${itemsText || "-"}
 
-<b>Итого:</b> ${order.totalPrice} ₽
+Итого: ${order.totalPrice} ₽
 
-<b>Комментарий:</b>
-${escapeHtml(order.comment || "Без комментария")}
+Комментарий:
+${order.comment || "Без комментария"}
 `;
 
-    const response = await fetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage`,
+    const proxyAgent = new SocksProxyAgent(
+      `socks5://${process.env.PROXY_USER}:${process.env.PROXY_PASS}@${process.env.PROXY_HOST}:${process.env.PROXY_PORT}`
+    );
+
+    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    const response = await axios.post(
+      telegramUrl,
       {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-          parse_mode: "HTML",
-        }),
+        chat_id: chatId,
+        text: message,
+      },
+      {
+        httpAgent: proxyAgent,
+        httpsAgent: proxyAgent,
+        timeout: 15000,
       }
     );
 
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: "Failed to send Telegram message" },
-        { status: 500 }
-      );
-    }
+    return NextResponse.json({
+      success: true,
+      telegram: response.data,
+    });
+  } catch (error: any) {
+    console.error("ORDER ERROR:", error?.response?.data || error);
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
-  console.log(error);
     return NextResponse.json(
-      { error: "Order processing failed" },
+      {
+        error: "Order processing failed",
+        details: error?.response?.data || error?.message || String(error),
+      },
       { status: 500 }
     );
   }
