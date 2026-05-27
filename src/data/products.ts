@@ -326,7 +326,7 @@ export const dishes = [
 `,
     price: 320,
     image:
-      "/images/perez",
+      "/images/perez.webp",
     seasonal: true,
   },
 
@@ -342,7 +342,7 @@ export const dishes = [
 `,
     price: 150,
     image:
-      "/images/chay",
+      "/images/chay.webp",
     seasonal: true,
   },
 
@@ -366,7 +366,7 @@ export const dishes = [
 `,
     price: 420,
     image:
-      "/images/salat2",
+      "/images/salat2.webp",
     seasonal: true,
   },
 ];
