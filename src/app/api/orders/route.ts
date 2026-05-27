@@ -40,8 +40,20 @@ ${itemsText || "-"}
 ${order.comment || "Без комментария"}
 `;
 
+    const proxyHost = process.env.PROXY_HOST;
+    const proxyPort = process.env.PROXY_PORT;
+    const proxyUser = process.env.PROXY_USER;
+    const proxyPass = process.env.PROXY_PASS;
+
+    if (!proxyHost || !proxyPort || !proxyUser || !proxyPass) {
+      return NextResponse.json(
+        { error: "Proxy env not found" },
+        { status: 500 }
+      );
+    }
+
     const proxyAgent = new SocksProxyAgent(
-      `socks5://${process.env.PROXY_USER}:${process.env.PROXY_PASS}@${process.env.PROXY_HOST}:${process.env.PROXY_PORT}`
+      `socks5h://${proxyUser}:${proxyPass}@${proxyHost}:${proxyPort}`
     );
 
     const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -55,6 +67,7 @@ ${order.comment || "Без комментария"}
       {
         httpAgent: proxyAgent,
         httpsAgent: proxyAgent,
+        proxy: false,
         timeout: 15000,
       }
     );
