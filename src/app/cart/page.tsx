@@ -38,19 +38,20 @@ export default function CartPage() {
   const [successMessage, setSuccessMessage] = useState("");
 
   async function submitOrder() {
-    if (!name.trim() || !phone.trim()) {
-      alert("Укажите имя и телефон");
-      return;
-    }
+  if (!name.trim() || !phone.trim()) {
+    alert("Укажите имя и телефон");
+    return;
+  }
 
-    if (cart.length === 0) {
-      alert("Корзина пустая");
-      return;
-    }
+  if (cart.length === 0) {
+    alert("Корзина пустая");
+    return;
+  }
 
-    setIsSending(true);
+  setIsSending(true);
 
-    const response = await fetch("/api/orders", {
+  if (paymentMethod === "Онлайн по СБП") {
+    const response = await fetch("/api/payments/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,22 +70,53 @@ export default function CartPage() {
     setIsSending(false);
 
     if (!response.ok) {
-      alert("Не удалось отправить заказ. Проверь Telegram-настройки.");
+      alert("Не удалось создать оплату. Попробуйте позже.");
       return;
     }
 
-    clearCart();
-    setName("");
-    setPhone("");
-    setAddress("");
-    setComment("");
-    setPaymentMethod("Наличными при получении");
-    setSuccessMessage("Заказ успешно отправлен!");
+    const data = await response.json();
 
-    setTimeout(() => {
-      setSuccessMessage("");
-    }, 2500);
+    if (!data.confirmationUrl) {
+      alert("ЮKassa не вернула ссылку на оплату.");
+      return;
+    }
+
+    window.location.href = data.confirmationUrl;
+    return;
   }
+
+  const response = await fetch("/api/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      phone,
+      address,
+      comment,
+      paymentMethod,
+      items: cart,
+      totalPrice,
+    }),
+  });
+
+  setIsSending(false);
+
+  if (!response.ok) {
+    alert("Не удалось отправить заказ.");
+    return;
+  }
+
+  clearCart();
+  setName("");
+  setPhone("");
+  setAddress("");
+  setComment("");
+  setPaymentMethod("Наличными при получении");
+
+  window.location.href = "/success?payment=cash";
+}
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#cdb78f] pb-24 text-[#355f28]">
