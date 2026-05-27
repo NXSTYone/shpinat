@@ -252,7 +252,7 @@ export default function Home() {
         </div>
 
         <div className="mb-8 rounded-[2rem] border border-[#b89c6d] bg-white/35 p-5 shadow-lg backdrop-blur-xl">
-  <div className="flex items-start gap-4">
+  <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4">
     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#39A935]/15">
       <svg
         xmlns="http://www.w3.org/2000/svg"
