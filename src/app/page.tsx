@@ -251,6 +251,39 @@ export default function Home() {
           </p>
         </div>
 
+        <div className="mb-8 rounded-[2rem] border border-[#b89c6d] bg-white/35 p-5 shadow-lg backdrop-blur-xl">
+  <div className="flex items-start gap-4">
+    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#39A935]/15">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#39A935"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 8v4l3 3" />
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-black text-[#1f5f2a]">
+        Важная информация
+      </h3>
+
+      <p className="mt-2 text-sm font-semibold leading-7 text-[#355f28]">
+        Все заказы оформляются минимум за 12 часов до желаемого времени
+        доставки. Это позволяет нам подготовить для вас максимально свежие,
+        качественные и натуральные блюда.
+      </p>
+    </div>
+  </div>
+</div>
+
         <div className="grid gap-7 md:grid-cols-3">
           {menuSections.map((item) => {
             const Icon = item.icon;
