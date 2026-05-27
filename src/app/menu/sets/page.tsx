@@ -146,7 +146,7 @@ export default function SetsPage() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-[#355f28] md:text-xl">
-            Готовые программы питания для вас и вашего здоровья.
+            Готовые авторские программы питания для вас и вашего здоровья.
           </p>
 
           <button
