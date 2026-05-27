@@ -369,6 +369,77 @@ export const dishes = [
       "/images/salat2.webp",
     seasonal: true,
   },
+
+  {
+    id: 26,
+    title: "Галета с начинкой",
+    description:
+      "Очень вкусная и полезная галета с разными начинками. Отличный выбор для правильного питания.",
+    fullDescription: ` 
+- Мясо птицы
+- Овощи
+- Сыр
+- Заправка и специи
+`,
+    price: 430,
+    image:
+      "/images/galeta.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 27,
+    title: "Боулы сытные",
+    description:
+      "Сытные боулы из натуральных и экологичных ингридиентов подарят вам пользу,легкость и энергию.",
+    fullDescription: ` 
+- Мясо птицы
+- Крупа
+- Овощи
+- Салатные травы
+- Семена
+- Орехи
+- Проростки
+- Микрозелень
+- Соус
+`,
+    price: 470,
+    image:
+      "/images/boul.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 28,
+    title: "Бутерброд",
+    description:
+      "Классический вариант правильного питания. Вкус и польза для вас и вашего организма.",
+    fullDescription: ` 
+- Хлеб цельнозерновой
+- Творожный сыр
+- Авокадо
+- Вяленый томат
+- Зелень
+`,
+    price: 110,
+    image:
+      "/images/buterbrod.webp",
+    seasonal: true,
+  },
+
+  {
+    id: 29,
+    title: "Вяленые томаты",
+    description:
+      "Собственное изготовление и экологичность. Отлично подойдет для бутербродов и заправок для других блюд.",
+    fullDescription: ` 
+- Вяленые томаты
+`,
+    price: 600,
+    image:
+      "/images/tomat.webp",
+    seasonal: true,
+  },
 ];
 
 export const sets = [
