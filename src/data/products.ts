@@ -445,19 +445,6 @@ export const dishes = [
       "/images/sertifikat3.webp",
     seasonal: false,
   },
-
-  {
-  id: 999,
-  title: "Тестовый заказ",
-  description: "Проверка онлайн-оплаты",
-  fullDescription: `
-- Тестовая позиция
-- Для проверки ЮKassa
-`,
-  price: 1,
-  image: "/images/logo.png",
-  seasonal: false,
-},
 ];
 
 export const sets = [
