@@ -1,22 +1,13 @@
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
-import { execFile } from "child_process";
-import { promisify } from "util";
-
-const execFileAsync = promisify(execFile);
 
 export async function POST(request: Request) {
   try {
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
 
-    const proxyHost = process.env.PROXY_HOST;
-    const proxyPort = process.env.PROXY_PORT;
-    const proxyUser = process.env.PROXY_USER;
-    const proxyPass = process.env.PROXY_PASS;
-
-    if (!botToken || !chatId || !proxyHost || !proxyPort || !proxyUser || !proxyPass) {
+    if (!botToken || !chatId) {
       return NextResponse.json(
         { error: "Missing env variables" },
         { status: 500 }
@@ -49,28 +40,25 @@ ${itemsText || "-"}
 ${order.comment || "Без комментария"}
 `;
 
-    const proxy = `${proxyUser}:${proxyPass}@${proxyHost}:${proxyPort}`;
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const response = await fetch(
+      `https://api.telegram.org/bot${botToken}/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+        }),
+      }
+    );
 
-    const { stdout, stderr } = await execFileAsync("curl", [
-      "--socks5-hostname",
-      proxy,
-      "-X",
-      "POST",
-      url,
-      "-d",
-      `chat_id=${chatId}`,
-      "-d",
-      `text=${message}`,
-    ]);
-
-    if (stderr) {
-      console.error("Telegram curl stderr:", stderr);
-    }
+    const telegramResult = await response.json();
 
     return NextResponse.json({
       success: true,
-      telegram: stdout,
+      telegram: telegramResult,
     });
   } catch (error: any) {
     console.error("ORDER ERROR:", error);

@@ -137,7 +137,7 @@ export default function DishesPage() {
           </div>
 
           <h1 className="mt-8 text-5xl font-black tracking-[-0.05em] text-[#1f5f2a] md:text-7xl">
-            Блюда, ПП-боксы, Сертификатыыыыы
+            Блюда, ПП-боксы, Сертификаты
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-[#355f28] md:text-xl">
