@@ -1,17 +1,24 @@
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
-import axios from "axios";
-import { SocksProxyAgent } from "socks-proxy-agent";
+import { execFile } from "child_process";
+import { promisify } from "util";
+
+const execFileAsync = promisify(execFile);
 
 export async function POST(request: Request) {
   try {
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
 
-    if (!botToken || !chatId) {
+    const proxyHost = process.env.PROXY_HOST;
+    const proxyPort = process.env.PROXY_PORT;
+    const proxyUser = process.env.PROXY_USER;
+    const proxyPass = process.env.PROXY_PASS;
+
+    if (!botToken || !chatId || !proxyHost || !proxyPort || !proxyUser || !proxyPass) {
       return NextResponse.json(
-        { error: "Telegram env not found" },
+        { error: "Missing env variables" },
         { status: 500 }
       );
     }
@@ -42,49 +49,36 @@ ${itemsText || "-"}
 ${order.comment || "Без комментария"}
 `;
 
-    const proxyHost = process.env.PROXY_HOST;
-    const proxyPort = process.env.PROXY_PORT;
-    const proxyUser = process.env.PROXY_USER;
-    const proxyPass = process.env.PROXY_PASS;
+    const proxy = `${proxyUser}:${proxyPass}@${proxyHost}:${proxyPort}`;
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-    if (!proxyHost || !proxyPort || !proxyUser || !proxyPass) {
-      return NextResponse.json(
-        { error: "Proxy env not found" },
-        { status: 500 }
-      );
+    const { stdout, stderr } = await execFileAsync("curl", [
+      "--socks5-hostname",
+      proxy,
+      "-X",
+      "POST",
+      url,
+      "-d",
+      `chat_id=${chatId}`,
+      "-d",
+      `text=${message}`,
+    ]);
+
+    if (stderr) {
+      console.error("Telegram curl stderr:", stderr);
     }
-
-    const proxyAgent = new SocksProxyAgent(
-      `socks5h://${proxyUser}:${proxyPass}@${proxyHost}:${proxyPort}`
-    );
-
-    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-    const response = await axios.post(
-      telegramUrl,
-      {
-        chat_id: chatId,
-        text: message,
-      },
-      {
-        httpAgent: proxyAgent,
-        httpsAgent: proxyAgent,
-        proxy: false,
-        timeout: 15000,
-      }
-    );
 
     return NextResponse.json({
       success: true,
-      telegram: response.data,
+      telegram: stdout,
     });
   } catch (error: any) {
-    console.error("ORDER ERROR:", error?.response?.data || error);
+    console.error("ORDER ERROR:", error);
 
     return NextResponse.json(
       {
-        error: "Order processing failed",
-        details: error?.response?.data || error?.message || String(error),
+        error: "Order failed",
+        details: String(error?.message || error),
       },
       { status: 500 }
     );
